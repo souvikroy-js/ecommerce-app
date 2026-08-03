@@ -6,16 +6,16 @@ export const metadata: Metadata = {
   description: "Home page of E-commerce App",
 };
 
-const page = () => {
+const HomePage = () => {
   return (
     <>
       <Header />
 
-      <main className="grid h-dvh place-items-center">
-        Welcome to E-commerce App
-      </main>
+      <section className="grid h-dvh place-items-center">
+        Welcome to Public page
+      </section>
     </>
   );
 };
 
-export default page;
+export default HomePage;

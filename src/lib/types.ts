@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 
-export type LayoutProps = Readonly<{
+// Page Layout Props type
+export type PageLayoutProps = Readonly<{
   children: ReactNode;
 }>;
