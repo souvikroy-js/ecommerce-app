@@ -16,7 +16,23 @@ const Header = () => {
         </Link>
 
         <nav className="flex items-center gap-4">
-          <Link href={"/"}>Home</Link>
+          <Link
+            href={"/"}
+            className="hover:underline">
+            Home
+          </Link>
+
+          <Link
+            href={"/sign-in"}
+            className="hover:underline">
+            Login
+          </Link>
+
+          <Link
+            href={"/sign-up"}
+            className="hover:underline">
+            Register
+          </Link>
 
           <ThemeToggleButton />
         </nav>
