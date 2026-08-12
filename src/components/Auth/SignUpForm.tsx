@@ -10,6 +10,8 @@ import { Field, FieldError, FieldLabel } from "../shadcnui/field";
 import { Input } from "../shadcnui/input";
 import { EyeIcon, EyeOffIcon, Loader2Icon, LockIcon } from "lucide-react";
 import { Button } from "../shadcnui/button";
+import signUp from "@/hooks/signUp";
+import { toast } from "react-toastify";
 
 const SignUpForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -33,17 +35,15 @@ const SignUpForm = () => {
   });
 
   const registerHandler = async (registerData: RegisterType) => {
-    console.log(registerData);
-
-    // const { isSuccess, message } = await signUp(registerData);
-    // if (!isSuccess) {
-    // 	toast.error(message);
-    // }
-    // if (isSuccess) {
-    // 	toast.success(message);
-    // 	reset();
-    // 	replace("/auth/login");
-    // }
+    const { isSuccess, message } = await signUp(registerData);
+    if (!isSuccess) {
+      toast.error(message);
+    }
+    if (isSuccess) {
+      toast.success(message);
+      reset();
+      replace("/sign-in");
+    }
   };
 
   return (

@@ -10,6 +10,8 @@ import { Input } from "../shadcnui/input";
 import { EyeIcon, EyeOffIcon, Loader2Icon, LockIcon } from "lucide-react";
 import { Button } from "../shadcnui/button";
 import { useRouter } from "next/navigation";
+import signIn from "@/hooks/signIn";
+import { toast } from "react-toastify";
 
 const SignInForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -33,15 +35,15 @@ const SignInForm = () => {
   const loginButtonHandeler = async (loginData: LoginType) => {
     console.log(loginData);
 
-    // const { isSuccess, message } = await signIn(loginData);
-    // if (!isSuccess) {
-    // 	toast.error(message);
-    // }
-    // if (isSuccess) {
-    // 	toast.success(message);
-    // 	replace("/dashboard");
-    // 	reset();
-    // }
+    const { isSuccess, message } = await signIn(loginData);
+    if (!isSuccess) {
+      toast.error(message);
+    }
+    if (isSuccess) {
+      toast.success(message);
+      // replace("/dashboard");
+      reset();
+    }
   };
 
   return (
