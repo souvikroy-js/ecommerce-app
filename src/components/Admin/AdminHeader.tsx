@@ -12,6 +12,7 @@ import {
   DropdownMenuTrigger,
 } from "../shadcnui/dropdown-menu";
 import { Avatar, AvatarFallback } from "../shadcnui/avatar";
+import LogoutButton from "../LogoutButton";
 
 const AdminHeader = () => {
   return (
@@ -62,7 +63,7 @@ const AdminHeader = () => {
               <DropdownMenuSeparator />
 
               <DropdownMenuItem>
-                <LogOutIcon /> Sign Out
+                <LogoutButton />
               </DropdownMenuItem>
             </DropdownMenuGroup>
           </DropdownMenuContent>
