@@ -1,7 +1,8 @@
+import { LayoutDashboardIcon, ShoppingBagIcon } from "lucide-react";
 import Link from "next/link";
 import ThemeToggleButton from "../Layout/ThemeToggleButton";
-import { SidebarTrigger } from "../shadcnui/sidebar";
-import { LayoutDashboardIcon, LogOutIcon, ShoppingBagIcon } from "lucide-react";
+import LogoutButton from "../LogoutButton";
+import { Avatar, AvatarFallback } from "../shadcnui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,8 +12,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../shadcnui/dropdown-menu";
-import { Avatar, AvatarFallback } from "../shadcnui/avatar";
-import LogoutButton from "../LogoutButton";
+import { SidebarTrigger } from "../shadcnui/sidebar";
 
 const AdminHeader = () => {
   return (

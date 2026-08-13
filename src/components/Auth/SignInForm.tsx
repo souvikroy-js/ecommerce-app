@@ -41,7 +41,7 @@ const SignInForm = () => {
     }
     if (isSuccess) {
       toast.success(message);
-      // replace("/dashboard");
+      replace("/customer");
       reset();
     }
   };
