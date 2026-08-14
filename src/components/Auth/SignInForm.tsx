@@ -12,6 +12,7 @@ import { Button } from "../shadcnui/button";
 import { useRouter } from "next/navigation";
 import signIn from "@/hooks/signIn";
 import { toast } from "react-toastify";
+import Link from "next/link";
 
 const SignInForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -75,6 +76,7 @@ const SignInForm = () => {
         />
 
         {/* Password field */}
+
         <Controller
           name="password"
           control={control}
@@ -82,6 +84,13 @@ const SignInForm = () => {
             <Field data-invalid={fieldState.invalid}>
               <FieldLabel htmlFor={field.name}>
                 Password <span className="font-bold text-red-500">*</span>
+                <div className="flex w-full items-center justify-end">
+                  <Link
+                    href="/forgot-password"
+                    className="text-muted-foreground hover:text-foreground text-xs">
+                    Forgot password?
+                  </Link>
+                </div>
               </FieldLabel>
               <div className="relative">
                 <Input

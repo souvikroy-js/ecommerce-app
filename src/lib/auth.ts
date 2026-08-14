@@ -21,6 +21,10 @@ export const auth = betterAuth({
       hash: hashPasswordFn,
       verify: verifyPasswordFn,
     },
+    sendResetPassword: async ({ user, url }) => {
+      // TODO: wire up real email sending (Resend, Nodemailer, etc.)
+      console.log(`Reset link for ${user.email}: ${url}`);
+    },
   },
   advanced: {
     cookiePrefix: "wp",

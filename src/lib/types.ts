@@ -1,5 +1,10 @@
 import { ReactNode } from "react";
-import { loginSchema, registerSchema } from "./zodSchema";
+import {
+  forgotPasswordSchema,
+  loginSchema,
+  registerSchema,
+  resetPasswordSchema,
+} from "./zodSchema";
 import z from "zod";
 
 // Page Layout Props type
@@ -12,3 +17,9 @@ export type LoginType = z.infer<typeof loginSchema>;
 
 // Register form data type
 export type RegisterType = z.infer<typeof registerSchema>;
+
+// ForgotPassword form data type
+export type ForgotPasswordType = z.infer<typeof forgotPasswordSchema>;
+
+// ResetPassword form data type
+export type ResetPasswordType = z.infer<typeof resetPasswordSchema>;

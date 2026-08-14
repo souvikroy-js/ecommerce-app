@@ -28,3 +28,13 @@ export const registerSchema = z
     error: "Password didn't match",
     path: ["confirmPassword"],
   });
+
+// forgotPassword form data schema
+export const forgotPasswordSchema = z.object({
+  email: z.string().email("Invalid email address"),
+});
+
+// resetPassword form data schema
+export const resetPasswordSchema = z.object({
+  password: z.string().min(8, "Password must be at least 8 characters"),
+});
