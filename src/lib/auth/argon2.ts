@@ -1,5 +1,5 @@
 import { hash, verify } from "@node-rs/argon2";
-import { serverEnv } from "./env/serverEnv";
+import { serverEnv } from "../env/serverEnv";
 
 type VerifyPasswordType = {
   hash: string;

@@ -10,7 +10,7 @@ import {
 } from "@/components/shadcnui/card";
 import { Field, FieldError, FieldLabel } from "@/components/shadcnui/field";
 import { Input } from "@/components/shadcnui/input";
-import { authClient } from "@/lib/auth-client";
+import { authClient } from "@/lib/auth/auth-client";
 import { ResetPasswordType } from "@/lib/types";
 import { resetPasswordSchema } from "@/lib/zodSchema";
 import { zodResolver } from "@hookform/resolvers/zod";

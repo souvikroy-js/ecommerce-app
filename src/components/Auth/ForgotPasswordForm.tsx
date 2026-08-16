@@ -17,7 +17,7 @@ import { Button } from "../shadcnui/button";
 import { Loader2Icon, MailIcon } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
-import { authClient } from "@/lib/auth-client";
+import { authClient } from "@/lib/auth/auth-client";
 import { toast } from "react-toastify";
 
 const ForgotPasswordForm = () => {

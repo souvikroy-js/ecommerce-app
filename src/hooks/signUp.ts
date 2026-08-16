@@ -1,4 +1,4 @@
-import { authClient } from "@/lib/auth-client";
+import { authClient } from "@/lib/auth/auth-client";
 import { RegisterType } from "@/lib/types";
 
 const signUp = async ({ name, email, password }: RegisterType) => {
