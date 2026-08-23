@@ -1,11 +1,10 @@
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
+import { admin } from "better-auth/plugins/admin";
 import prisma from "../dbClient/prisma";
 import { serverEnv } from "../env/serverEnv";
-import { nextCookies } from "better-auth/next-js";
 import { hashPasswordFn, verifyPasswordFn } from "./argon2";
-import { organization } from "better-auth/plugins";
-import { ac, customer, admin } from "./permissions";
+import { ac, adminUserRole, customerUserRole } from "./permissions";
 
 export const auth = betterAuth({
   secret: serverEnv.BETTER_AUTH_SECRET,
@@ -13,7 +12,27 @@ export const auth = betterAuth({
   database: prismaAdapter(prisma, {
     provider: "sqlite", // or "mysql", "sqlite"
   }),
-  plugins: [organization({ ac, roles: { customer, admin } }), nextCookies()],
+
+  plugins: [
+    admin({
+      ac,
+      roles: {
+        customer: customerUserRole,
+        admin: adminUserRole,
+      },
+      defaultRole: "customer",
+      adminRoles: ["admin"],
+    }),
+  ],
+  // plugins: [
+  //   organization({
+  //     ac,
+  //     roles: { customer, admin },
+  //     defaultRole: "customer",
+  //     adminRoles: ["admin"],
+  //   }),
+  //   nextCookies(),
+  // ],
 
   emailAndPassword: {
     enabled: true,
@@ -28,6 +47,20 @@ export const auth = betterAuth({
       console.log(`Reset link for ${user.email}: ${url}`);
     },
   },
+  user: {
+    changeEmail: {
+      enabled: true,
+    },
+  },
+
+  emailVerification: {
+    sendOnSignUp: true,
+    autoSignInAfterVerification: true,
+    sendVerificationEmail: async ({ user, url }) => {
+      console.log(`[AUTH] Verification email to ${user.email}: ${url}`);
+    },
+  },
+
   advanced: {
     cookiePrefix: "ecom",
     database: {
@@ -35,3 +68,5 @@ export const auth = betterAuth({
     },
   },
 });
+
+export type AppRole = "admin" | "customer";

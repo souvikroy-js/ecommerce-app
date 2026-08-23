@@ -14,11 +14,11 @@ const statement = {
 
 export const ac = createAccessControl(statement);
 
-export const customer = ac.newRole({
+export const customerUserRole = ac.newRole({
   product: ["read"],
 });
 
-export const admin = ac.newRole({
+export const adminUserRole = ac.newRole({
   ...adminAc.statements,
   product: ["create", "update", "delete", "read"],
 });
