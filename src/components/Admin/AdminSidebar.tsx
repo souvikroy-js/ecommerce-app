@@ -1,7 +1,9 @@
 "use client";
 
 import {
+  FolderTree,
   LayoutDashboardIcon,
+  Package,
   PackageIcon,
   StoreIcon,
   User,
@@ -22,9 +24,11 @@ import {
 import { usePathname } from "next/navigation";
 
 const navItems = [
-  { label: "Dashboard", href: "/customer", icon: LayoutDashboardIcon },
-  { label: "Orders", href: "/customer/orders", icon: PackageIcon },
-  { label: "Profile", href: "/customer/profile", icon: User },
+  { label: "Dashboard", href: "/admin", icon: LayoutDashboardIcon },
+  { label: "Orders", href: "/admin/orders", icon: PackageIcon },
+  { label: "Users", href: "/admin/users", icon: User },
+  { label: "Products", href: "/admin/products", icon: Package },
+  { label: "Categories", href: "/admin/categories", icon: FolderTree },
 ];
 
 const AdminSidebar = () => {

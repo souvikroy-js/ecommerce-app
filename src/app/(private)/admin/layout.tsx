@@ -24,7 +24,7 @@ const AdminLayout = async ({ children }: PageLayoutProps) => {
       <AdminSidebar />
       <SidebarInset>
         <AdminHeader />
-        <main>{children}</main>
+        <main className="p-6">{children}</main>
       </SidebarInset>
     </SidebarProvider>
   );
