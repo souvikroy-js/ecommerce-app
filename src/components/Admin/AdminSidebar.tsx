@@ -4,10 +4,11 @@ import {
   FolderTree,
   LayoutDashboardIcon,
   Package,
-  PackageIcon,
+  ShoppingCart,
   StoreIcon,
   User,
 } from "lucide-react";
+import { usePathname } from "next/navigation";
 import {
   Sidebar,
   SidebarContent,
@@ -21,11 +22,10 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from "../shadcnui/sidebar";
-import { usePathname } from "next/navigation";
 
 const navItems = [
   { label: "Dashboard", href: "/admin", icon: LayoutDashboardIcon },
-  { label: "Orders", href: "/admin/orders", icon: PackageIcon },
+  { label: "Orders", href: "/admin/orders", icon: ShoppingCart },
   { label: "Users", href: "/admin/users", icon: User },
   { label: "Products", href: "/admin/products", icon: Package },
   { label: "Categories", href: "/admin/categories", icon: FolderTree },

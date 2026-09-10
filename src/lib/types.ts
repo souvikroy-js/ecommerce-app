@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import {
+  createProductSchema,
   forgotPasswordSchema,
   loginSchema,
   registerSchema,
@@ -23,3 +24,6 @@ export type ForgotPasswordType = z.infer<typeof forgotPasswordSchema>;
 
 // ResetPassword form data type
 export type ResetPasswordType = z.infer<typeof resetPasswordSchema>;
+
+// create product type
+export type CreateProduct = z.infer<typeof createProductSchema>;
