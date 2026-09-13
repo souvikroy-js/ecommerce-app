@@ -1,6 +1,6 @@
 import z from "zod";
 
-// login form data schema
+// login form schema
 export const loginSchema = z.object({
   email: z.email({ error: "Invalid email address" }),
   password: z
@@ -8,7 +8,7 @@ export const loginSchema = z.object({
     .min(8, { error: "Password must be minimum 8 characters long" }),
 });
 
-// Register form data schema
+// Register form schema
 export const registerSchema = z
   .object({
     name: z
@@ -25,16 +25,17 @@ export const registerSchema = z
     path: ["confirmPassword"],
   });
 
-// forgotPassword form data schema
+// forgotPassword form schema
 export const forgotPasswordSchema = z.object({
   email: z.string().email("Invalid email address"),
 });
 
-// resetPassword form data schema
+// resetPassword form  schema
 export const resetPasswordSchema = z.object({
   password: z.string().min(8, "Password must be at least 8 characters"),
 });
 
+// createProduct form  schema
 export const createProductSchema = z.object({
   name: z.string().min(1, "Name is required"),
   description: z.string().optional(),
@@ -42,4 +43,10 @@ export const createProductSchema = z.object({
   stock: z.number().int().min(0, "Stock must be at least 0"),
   images: z.string().optional(),
   categoryId: z.string().optional(),
+});
+
+// category form  schema
+export const categoryFormSchema = z.object({
+  name: z.string().min(1, "Name is required"),
+  slug: z.string().optional(),
 });
