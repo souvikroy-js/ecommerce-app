@@ -1,8 +1,5 @@
-import { createAccessControl } from "better-auth/plugins";
-import {
-  adminAc,
-  defaultStatements,
-} from "better-auth/plugins/organization/access";
+import { createAccessControl } from "better-auth/plugins/access";
+import { adminAc, defaultStatements } from "better-auth/plugins/admin/access";
 
 /**
  * make sure to use `as const` so typescript can infer the type correctly
