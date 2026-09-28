@@ -24,7 +24,7 @@ const AdminUsersPage = async () => {
     },
   });
 
-  const rows = users.map((u) => ({
+  const data = users.map((u) => ({
     ...u,
     createdAt: u.createdAt.toISOString(),
   }));
@@ -40,7 +40,7 @@ const AdminUsersPage = async () => {
       </div>
       <DataTable
         columns={columns}
-        data={rows}
+        data={data}
         searchKey="email"
         searchPlaceholder="Search by email..."
       />

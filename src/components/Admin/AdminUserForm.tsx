@@ -51,6 +51,7 @@ const AdminUserForm = ({
   onOpenChange,
 }: Props) => {
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
   const [internalOpen, setInternalOpen] = useState(false);
   const open = controlledOpen ?? internalOpen;
   const setOpen = onOpenChange ?? setInternalOpen;
@@ -70,6 +71,7 @@ const AdminUserForm = ({
   });
 
   const onSubmit = async (data: FormValues) => {
+    setLoading(true);
     try {
       const { isSuccess, message } = await adminUserUpload(
         mode,
@@ -87,6 +89,8 @@ const AdminUserForm = ({
       console.error(error);
 
       toast.error("Network error");
+    } finally {
+      setLoading(false);
     }
   };
 
