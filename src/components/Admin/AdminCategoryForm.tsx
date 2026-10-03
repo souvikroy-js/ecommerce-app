@@ -49,13 +49,16 @@ const AdminCategoryForm = ({ mode, categoryId, initialValues }: Props) => {
   }, [nameValue, slugManuallyEdited, mode, setValue]);
 
   const onSubmit = async (cData: CreateCategory) => {
-    const { isSuccess, message } = await categoryUpload(cData);
+    const { success, message } = await categoryUpload(
+      cData,
+      mode === "edit" ? categoryId : null,
+    );
 
-    if (!isSuccess) {
+    if (!success) {
       toast.error(message);
     }
 
-    if (isSuccess) {
+    if (success) {
       toast.success(message);
     }
   };
