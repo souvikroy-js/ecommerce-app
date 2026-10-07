@@ -1,6 +1,6 @@
-import { LayoutDashboardIcon, ShoppingBagIcon } from "lucide-react";
+import { LayoutDashboardIcon, StoreIcon } from "lucide-react";
 import Link from "next/link";
-import ThemeToggleButton from "../Layout/ThemeToggleButton";
+import ThemeToggleButton from "../ThemeToggleButton";
 import LogoutButton from "../LogoutButton";
 import { Avatar, AvatarFallback } from "../shadcnui/avatar";
 import {
@@ -13,8 +13,25 @@ import {
   DropdownMenuTrigger,
 } from "../shadcnui/dropdown-menu";
 import { SidebarTrigger } from "../shadcnui/sidebar";
+import { auth } from "@/lib/auth/auth";
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 
-const AdminHeader = () => {
+const AdminHeader = async () => {
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+  if (!session) redirect("/sign-in");
+
+  const { user } = session;
+
+  const initials = user.name
+    .split(" ")
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+
   return (
     <header className="bg-background sticky top-0 z-10 flex items-center justify-between border-b px-4 py-2">
       <div className="flex items-center gap-2">
@@ -22,8 +39,8 @@ const AdminHeader = () => {
         <Link
           href="/"
           className="text-muted-foreground hover:text-foreground ml-2 flex items-center gap-1.5 text-sm no-underline">
-          <ShoppingBagIcon size={16} />
-          <span className="hidden sm:inline">Shop</span>
+          <StoreIcon size={16} />
+          <span className="hidden sm:inline">Store</span>
         </Link>
       </div>
 
@@ -34,9 +51,9 @@ const AdminHeader = () => {
               <button className="hover:bg-accent flex cursor-pointer items-center gap-2 rounded-md p-1" />
             }>
             <Avatar size="sm">
-              <AvatarFallback>SR</AvatarFallback>
+              <AvatarFallback>{initials}</AvatarFallback>
             </Avatar>
-            <span>Admin name</span>
+            <span>{user.name}</span>
           </DropdownMenuTrigger>
 
           <DropdownMenuContent

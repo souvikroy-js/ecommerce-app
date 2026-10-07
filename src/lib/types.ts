@@ -30,3 +30,13 @@ export type ResetPasswordType = z.infer<typeof resetPasswordSchema>;
 export type CreateProduct = z.infer<typeof createProductSchema>;
 // create product type
 export type CreateCategory = z.infer<typeof categoryFormSchema>;
+
+export type PublicCartItem = {
+  id: string;
+  productId: string;
+  productName: string;
+  productPrice: number;
+  productImage: string | null;
+  stock: number;
+  quantity: number;
+};

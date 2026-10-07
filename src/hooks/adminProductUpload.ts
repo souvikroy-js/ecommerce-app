@@ -8,7 +8,7 @@ import { revalidatePath } from "next/cache";
 import { rm } from "node:fs/promises";
 
 const adminProductUpload = async (
-  { name, price, stock, description, images, categoryId }: CreateProduct,
+  { name, price, stock, description, categoryId }: CreateProduct,
   file: File,
 ) => {
   const productId = nanoid();
@@ -36,7 +36,7 @@ const adminProductUpload = async (
         price,
         stock,
         description,
-        images,
+        images: productName,
         categoryId: categoryId || undefined,
       },
     });

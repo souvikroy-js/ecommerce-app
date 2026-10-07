@@ -27,8 +27,6 @@ export const metadata: Metadata = {
 };
 
 const AdminPage = async () => {
-  
-
   const session = await auth.api.getSession({
     headers: await headers(),
   });
@@ -101,7 +99,7 @@ const AdminPage = async () => {
         <div>
           <h1 className="text-3xl font-semibold">Admin Dashboard</h1>
           <p className="text-muted-foreground">
-            Welcome back,
+            Welcome back, {}
             {user.name}
           </p>
         </div>

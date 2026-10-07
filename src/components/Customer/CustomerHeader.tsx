@@ -1,6 +1,6 @@
 import { LayoutDashboardIcon, ShoppingBagIcon } from "lucide-react";
 import Link from "next/link";
-import ThemeToggleButton from "../Layout/ThemeToggleButton";
+import ThemeToggleButton from "../ThemeToggleButton";
 import LogoutButton from "../LogoutButton";
 import { Avatar, AvatarFallback } from "../shadcnui/avatar";
 import {
