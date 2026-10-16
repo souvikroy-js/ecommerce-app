@@ -19,6 +19,7 @@ import {
   setCartAtom,
   updateQuantityAtom,
 } from "@/lib/atoms";
+import { Route } from "next";
 
 export const CartContent = ({
   initialItems,
@@ -138,7 +139,7 @@ export const CartContent = ({
 
       <div className="flex justify-end">
         <Link
-          href="/checkout"
+          href={"/checkout" as Route}
           className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-md px-6 py-3 text-sm font-medium">
           Proceed to Checkout
         </Link>

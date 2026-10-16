@@ -16,7 +16,6 @@ import { CreateProduct } from "@/lib/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createProductSchema } from "@/lib/zodSchema";
 import ImageUpload from "./ImageUpload";
-import uploadImage from "@/hooks/uploadImage";
 import { useRef } from "react";
 import adminProductUpload from "@/hooks/adminProductUpload";
 import { toast } from "react-toastify";

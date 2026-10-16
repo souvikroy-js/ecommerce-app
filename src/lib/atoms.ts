@@ -87,8 +87,8 @@ export const addToCartAtom = atom(
   ) => {
     const res = await addToCart(productId, quantity);
 
-    if (!res.success) {
-      toast.error(res.error);
+    if (!res.success || !res.cart) {
+      toast.error(res.error ?? "Failed to add to cart");
       return;
     }
 
