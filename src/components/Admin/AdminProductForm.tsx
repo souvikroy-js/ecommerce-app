@@ -19,6 +19,7 @@ import ImageUpload from "./ImageUpload";
 import { useRef } from "react";
 import adminProductUpload from "@/hooks/adminProductUpload";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 type CategoryOption = {
   id: string;
@@ -39,6 +40,8 @@ const AdminProductForm = ({
   categories,
 }: Props) => {
   const fileRef = useRef<File | null>(null);
+  const { push } = useRouter();
+
   const {
     handleSubmit,
     control,
@@ -71,6 +74,7 @@ const AdminProductForm = ({
 
     if (isSuccess) {
       toast.success(message);
+      push("/admin/products");
     }
   };
 
