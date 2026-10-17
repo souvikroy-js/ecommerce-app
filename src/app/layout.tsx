@@ -1,10 +1,10 @@
 import ThemeProvider from "@/components/Providers/ThemeProvider";
 import { geistMono, geistSans, interHeading } from "@/lib/fonts";
-import { LayoutProps } from "@/lib/types";
+import { PageLayoutProps } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import "./globals.css";
 
-const RootLayout = ({ children }: LayoutProps) => {
+const RootLayout = ({ children }: PageLayoutProps) => {
   return (
     <html
       lang="en"

@@ -1,5 +1,42 @@
 import { ReactNode } from "react";
+import {
+  categoryFormSchema,
+  createProductSchema,
+  forgotPasswordSchema,
+  loginSchema,
+  registerSchema,
+  resetPasswordSchema,
+} from "./zodSchema";
+import z from "zod";
 
-export type LayoutProps = Readonly<{
+// Page Layout Props type
+export type PageLayoutProps = Readonly<{
   children: ReactNode;
 }>;
+
+// Login form data type
+export type LoginType = z.infer<typeof loginSchema>;
+
+// Register form data type
+export type RegisterType = z.infer<typeof registerSchema>;
+
+// ForgotPassword form data type
+export type ForgotPasswordType = z.infer<typeof forgotPasswordSchema>;
+
+// ResetPassword form data type
+export type ResetPasswordType = z.infer<typeof resetPasswordSchema>;
+
+// create product type
+export type CreateProduct = z.infer<typeof createProductSchema>;
+// create product type
+export type CreateCategory = z.infer<typeof categoryFormSchema>;
+
+export type PublicCartItem = {
+  id: string;
+  productId: string;
+  productName: string;
+  productPrice: number;
+  productImage: string | null;
+  stock: number;
+  quantity: number;
+};
