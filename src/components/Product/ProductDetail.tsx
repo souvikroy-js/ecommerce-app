@@ -24,7 +24,6 @@ import {
   ZapIcon,
 } from "lucide-react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
@@ -57,7 +56,6 @@ type ProductDetailProps = {
 
 const ProductDetail = ({ product }: ProductDetailProps) => {
   const addToCart = useSetAtom(addToCartAtom);
-  const router = useRouter();
   const images = parseImages(product.images);
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);

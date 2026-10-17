@@ -17,7 +17,6 @@ import { authClient } from "@/lib/auth/auth-client";
 
 const AuthStatus = () => {
   const { data: session, isPending } = authClient.useSession();
-  //   const setCart = useSetAtom(setCartAtom);
   const router = useRouter();
 
   if (isPending) return null;
@@ -81,7 +80,6 @@ const AuthStatus = () => {
           <DropdownMenuItem
             onClick={async () => {
               await authClient.signOut();
-              //   setCart(null);
               router.push("/sign-in");
               router.refresh();
             }}>

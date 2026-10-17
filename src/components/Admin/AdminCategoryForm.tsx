@@ -36,7 +36,6 @@ const AdminCategoryForm = ({ mode, categoryId, initialValues }: Props) => {
   });
 
   const nameValue = watch("name");
-  // const slugValue = watch("slug");
 
   useEffect(() => {
     if (!slugManuallyEdited && mode === "create" && nameValue) {

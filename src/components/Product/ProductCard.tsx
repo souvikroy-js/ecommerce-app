@@ -16,7 +16,6 @@ import {
 import { Route } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
@@ -33,7 +32,6 @@ type ProductItem = {
 
 export const ProductCard = ({ product }: { product: ProductItem }) => {
   const addToCart = useSetAtom(addToCartAtom);
-  const router = useRouter();
   const [adding, setAdding] = useState(false);
   const images = parseImages(product.images);
   const imageUrl = getImageSrc(images[0]);
@@ -53,7 +51,6 @@ export const ProductCard = ({ product }: { product: ProductItem }) => {
     setAdding(true);
     try {
       await addToCart({ productId: product.id });
-      // router.push("/checkout");
     } catch {
       toast.error("Failed to add to cart");
       setAdding(false);
@@ -67,7 +64,6 @@ export const ProductCard = ({ product }: { product: ProductItem }) => {
           <div className="bg-muted flex aspect-square items-center justify-center">
             {imageUrl ?
               <Image
-                // src={`/upload/products/${images}`}
                 src={imageUrl}
                 alt={product.name}
                 width={400}
